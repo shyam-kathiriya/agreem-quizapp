@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+// routes
+import MainRoutes from './routes';
+
+// providers
+import { QuizContextProvider } from './contexts/quiz-context';
+
+const App: React.FC = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col px-5 min-h-screen bg-slate-900 justify-center items-center">
+      <BrowserRouter>
+        <QuizContextProvider>
+          <MainRoutes />
+        </QuizContextProvider>
+      </BrowserRouter>
     </div>
   );
 }
